@@ -6,6 +6,31 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class FoodItem {
 
+    @Id
+    @Column
+    @GenericGenerator(name = "generator", strategy = "increment")
+    @GeneratedValue(generator = "generator")
+    private int id;
+
+    @Column
+    private String name;
+
+    @Column
+    private double price;
+
+    @Column
+    private int quantity;
+
+    public FoodItem(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public FoodItem() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -38,18 +63,4 @@ public class FoodItem {
         this.quantity = quantity;
     }
 
-    @Id
-    @Column
-    @GenericGenerator(name = "generator", strategy = "increment")
-    @GeneratedValue(generator = "generator")
-    private int id;
-
-    @Column
-    private String name;
-
-    @Column
-    private double price;
-
-    @Column
-    private int quantity;
 }
