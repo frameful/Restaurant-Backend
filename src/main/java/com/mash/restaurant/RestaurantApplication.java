@@ -1,7 +1,7 @@
 package com.mash.restaurant;
 
-import com.mash.restaurant.models.FoodItem;
-import com.mash.restaurant.repositories.FoodItemRepository;
+import com.mash.restaurant.model.FoodItem;
+import com.mash.restaurant.repository.FoodItemRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

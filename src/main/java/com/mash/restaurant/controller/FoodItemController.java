@@ -1,7 +1,7 @@
-package com.mash.restaurant.controllers;
+package com.mash.restaurant.controller;
 
-import com.mash.restaurant.models.FoodItem;
-import com.mash.restaurant.repositories.FoodItemRepository;
+import com.mash.restaurant.model.FoodItem;
+import com.mash.restaurant.repository.FoodItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

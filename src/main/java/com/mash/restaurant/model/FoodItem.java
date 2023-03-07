@@ -1,4 +1,4 @@
-package com.mash.restaurant.models;
+package com.mash.restaurant.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
