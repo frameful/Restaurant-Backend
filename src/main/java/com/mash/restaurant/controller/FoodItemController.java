@@ -23,12 +23,11 @@ public class FoodItemController {
         return foodItemRepository.findAll();
     }
 
-    @PostMapping(path = "/add_food",
+    @PostMapping(path = "/food",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FoodItem> newFoodItem(@RequestBody FoodItem newFoodItem){
         FoodItem foodItem = foodItemRepository.save(newFoodItem);
         return new ResponseEntity<>(foodItem, HttpStatus.CREATED);
     }
-
 }

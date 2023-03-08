@@ -1,13 +1,17 @@
 package com.mash.restaurant.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Set;
+
 @Entity
+@Table(name = "food_item")
 public class FoodItem {
 
     @Id
-    @Column
+    @Column(name = "id")
     @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
     private int id;
@@ -18,17 +22,27 @@ public class FoodItem {
     @Column
     private double price;
 
-    @Column
-    private int quantity;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "foodItemSet")
+    Set<Restaurant> restaurantSet;
 
-    public FoodItem(String name, double price, int quantity) {
+
+    public FoodItem(String name, double price) {
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
     }
 
     public FoodItem() {
 
+    }
+
+
+    public Set<Restaurant> getRestaurantSet() {
+        return restaurantSet;
+    }
+
+    public void setRestaurantSet(Set<Restaurant> restaurantSet) {
+        this.restaurantSet = restaurantSet;
     }
 
     public int getId() {
@@ -53,14 +67,6 @@ public class FoodItem {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
 }
