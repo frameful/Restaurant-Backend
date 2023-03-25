@@ -1,5 +1,6 @@
 package com.mash.restaurant.models;
 
+import com.google.gson.Gson;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -19,12 +20,12 @@ public class FoodItem {
     private double price;
 
     @Column
-    private int quantity;
+    private boolean inStock;
 
-    public FoodItem(String name, double price, int quantity) {
+    public FoodItem(String name, double price, boolean inStock) {
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
+        this.inStock = inStock;
     }
 
     public FoodItem() {
@@ -55,12 +56,16 @@ public class FoodItem {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public boolean isInStock() {
+        return inStock;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
     }
 
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 }
